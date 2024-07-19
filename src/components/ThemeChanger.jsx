@@ -3,9 +3,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/ThemeChanger.css";
 
 const ThemeSwitcher = () => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || "default"
-  );
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
   useEffect(() => {
     document.body.className = theme;
