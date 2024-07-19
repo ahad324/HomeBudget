@@ -5,6 +5,9 @@ import logomark from "../assets/logomark.svg";
 // Library "react-icons"
 import { IoTrash } from "react-icons/io5";
 
+// Component import
+import ThemeChanger from "./ThemeChanger";
+
 const nav = ({ userName }) => {
   return (
     <nav>
@@ -12,23 +15,26 @@ const nav = ({ userName }) => {
         <img src={logomark} alt="" />
         <span>HomeBudget</span>
       </NavLink>
-      {userName && (
-        <Form
-          method="post"
-          action="/logout"
-          onSubmit={(event) => {
-            if (!confirm("Delete User and All Data?")) {
-              event.preventDefault();
-            }
-          }}
-        >
-          {" "}
-          <button type="submit" className="btn btn--warning">
-            Delete User
-            <IoTrash />
-          </button>
-        </Form>
-      )}
+      <div className="flex flex-sm" style={{ alignItems: "center" }}>
+        <ThemeChanger />
+        {userName && (
+          <Form
+            method="post"
+            action="/logout"
+            onSubmit={(event) => {
+              if (!confirm("Delete User and All Data?")) {
+                event.preventDefault();
+              }
+            }}
+          >
+            {" "}
+            <button type="submit" className="btn btn--warning">
+              Delete User
+              <IoTrash />
+            </button>
+          </Form>
+        )}
+      </div>
     </nav>
   );
 };

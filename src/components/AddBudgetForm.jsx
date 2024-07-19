@@ -3,6 +3,8 @@ import { Form, useFetcher } from "react-router-dom";
 
 // Library imports
 import { HiCurrencyDollar } from "react-icons/hi2";
+// MagicUI Component import
+import BlurFade from "./magicui/BlurFade";
 
 const AddBudgetForm = () => {
   const fetcher = useFetcher();
@@ -18,7 +20,7 @@ const AddBudgetForm = () => {
   }, [isSubmitting]);
 
   return (
-    <div className="form-wrapper">
+    <BlurFade className="form-wrapper" inview delay={0.3}>
       <h2 className="h3">Create budget</h2>
       <fetcher.Form method="post" className="grid-sm" ref={formRef}>
         <div className="grid-xs">
@@ -56,7 +58,7 @@ const AddBudgetForm = () => {
           )}
         </button>
       </fetcher.Form>
-    </div>
+    </BlurFade>
   );
 };
 

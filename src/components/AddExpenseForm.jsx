@@ -3,6 +3,8 @@ import { useFetcher } from "react-router-dom";
 
 // Library imports
 import { HiPlusCircle } from "react-icons/hi";
+// MagicUI Component import
+import BlurFade from "./magicui/BlurFade";
 
 const AddExpenseForm = ({ budgets }) => {
   const fetcher = useFetcher();
@@ -18,7 +20,7 @@ const AddExpenseForm = ({ budgets }) => {
   }, [isSubmitting]);
 
   return (
-    <div className="form-wrapper">
+    <BlurFade className="form-wrapper" inview delay={0.4}>
       <h2 className="h3">
         Add New{" "}
         <span className="accent">
@@ -78,7 +80,7 @@ const AddExpenseForm = ({ budgets }) => {
           )}
         </button>
       </fetcher.Form>
-    </div>
+    </BlurFade>
   );
 };
 

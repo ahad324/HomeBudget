@@ -12,6 +12,7 @@ import Table from "../components/Table";
 
 // Library import
 import { toast } from "react-toastify";
+import BlurFade from "../components/magicui/BlurFade";
 
 // Loader
 export function dashboardLoader() {
@@ -72,9 +73,11 @@ const Dashboard = () => {
     <>
       {userName ? (
         <div className="dashboard">
-          <h1>
-            Welcome back, <span className="accent">{userName}</span>
-          </h1>
+          <BlurFade inview delay={0.2}>
+            <h1>
+              Welcome back, <span className="accent">{userName}</span>
+            </h1>
+          </BlurFade>
           <div className="grid-sm">
             {budgets && budgets.length > 0 ? (
               <div className="grid-lg">

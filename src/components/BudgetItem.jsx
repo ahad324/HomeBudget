@@ -10,11 +10,14 @@ import {
 import { HiOutlineBanknotes } from "react-icons/hi2";
 import { IoTrash } from "react-icons/io5";
 
+// MagicUI Components Imports
+import BlurFade from "../components/magicui/BlurFade";
+
 const BudgetItem = ({ budget, showDelete = false }) => {
   const { id, name, amount, color } = budget;
   const spent = calculateSpentByBudget(id);
   return (
-    <div className="budget" style={{ "--accent": color }}>
+    <BlurFade className="budget" Color={color} inview delay={0.2}>
       <div className="progress-text">
         <h3>{name}</h3>
         <p>{formatCurrency(amount)} Budgeted</p>
@@ -55,7 +58,7 @@ const BudgetItem = ({ budget, showDelete = false }) => {
           </Link>
         </div>
       )}
-    </div>
+    </BlurFade>
   );
 };
 
