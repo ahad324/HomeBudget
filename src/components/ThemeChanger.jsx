@@ -19,15 +19,18 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <label className="switch" htmlFor="theme-toggle">
-      <input
-        id="theme-toggle"
-        type="checkbox"
-        onChange={handleThemeChange}
-        checked={theme === "dark"}
-      />
-      <span className="slider"></span>
-    </label>
+    <>
+      <label htmlFor="theme-toggle">Theme</label>
+      <label className="switch" htmlFor="theme-toggle">
+        <input
+          id="theme-toggle"
+          type="checkbox"
+          onChange={handleThemeChange}
+          checked={theme === "dark"}
+        />
+        <span className="slider"></span>
+      </label>
+    </>
   );
 };
 
