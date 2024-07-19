@@ -108,11 +108,11 @@ const Dashboard = () => {
                 )}
               </div>
             ) : (
-              <div className="grid-sm">
+              <BlurFade className="grid-sm" inview delay={0.3}>
                 <p>Personal budgeting is the secret to financial freedom.</p>
                 <p>Create a budget to get started!</p>
                 <AddBudgetForm />
-              </div>
+              </BlurFade>
             )}
           </div>
         </div>
