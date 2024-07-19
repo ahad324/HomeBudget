@@ -19,8 +19,10 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <>
-      <label htmlFor="theme-toggle">Theme</label>
+    <div>
+      <label htmlFor="theme-toggle" style={{ fontSize: "0.7rem" }}>
+        Theme
+      </label>
       <label className="switch" htmlFor="theme-toggle">
         <input
           id="theme-toggle"
@@ -30,7 +32,7 @@ const ThemeSwitcher = () => {
         />
         <span className="slider"></span>
       </label>
-    </>
+    </div>
   );
 };
 
