@@ -21,6 +21,7 @@ const ThemeSwitcher = () => {
   return (
     <label className="switch" htmlFor="theme-toggle">
       <input
+        id="theme-toggle"
         type="checkbox"
         onChange={handleThemeChange}
         checked={theme === "dark"}
