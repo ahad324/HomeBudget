@@ -1,8 +1,5 @@
 const generateRandomColor = () => {
-  const index = fetchData("budgets")?.length ?? Math.floor(Math.random() * 360);
-  // Generate hue step for distinct colors
-  const hueStep = 360 / 10;  // Adjust the number to control the number of distinct colors
-  const hue = (index * hueStep) % 360;
+  const hue = Math.floor(Math.random() * 360);
 
   // Set saturation and lightness to constants or randomize them
   const saturation = 65;

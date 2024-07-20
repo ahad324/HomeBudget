@@ -1,5 +1,5 @@
 /* ⚠️ CSS optimized for the tutorial, not for expanding to a larger site. ⚠️ */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 *,
 *::before,
 *::after {
@@ -70,11 +70,11 @@ body.dark {
   --bkg: 0 0% 3%;
   --text: 200 20% 90%;
   --accent: 220 80% 60%;
-  --muted:5 5% 30%;
+  --muted: 5 5% 30%;
   /* Add other dark theme variables */
 }
 body {
-    font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: var(--fs-400);
   line-height: var(--lh-1-4);
   font-weight: 400;
@@ -485,7 +485,8 @@ select {
   gap: var(--space-md);
 }
 
-.budget ,.card{
+.budget,
+.card {
   cursor: grab;
   --backdrop: var(--accent);
   display: -ms-grid;
@@ -503,14 +504,17 @@ select {
   gap: var(--space-sm);
   text-decoration: none;
   color: hsl(var(--backdrop));
-  &:active{
+  &:active {
     cursor: grabbing;
+    z-index:1;
   }
 }
-.card{
-  border: none;box-shadow: none;
+.card {
+  border: none;
+  box-shadow: none;
   padding: 0;
-
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
 }
 
 .budget > .flex-sm {
@@ -559,7 +563,7 @@ progress {
 }
 
 progress[value]::-webkit-progress-bar {
-  background-color: hsl(var(--light));
+  background-color: rgb(184, 184, 184);
 }
 
 progress[value]::-moz-progress-bar {
