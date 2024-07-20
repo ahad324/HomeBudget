@@ -23,31 +23,12 @@ const BudgetItem = ({
   const { id, name, amount, color } = budget;
   const spent = calculateSpentByBudget(id);
 
-  const handleDragStart = () => {
-    if (budgetRef.current) {
-      // console.log("Start");
-      // console.log(budgetRef.current);
-      budgetRef.current.style.cursor = "grabbing";
-      // document.body.style.cursor = "grabbing";
-    }
-  };
-
-  const handleDragEnd = () => {
-    if (budgetRef) {
-      // console.log("End");
-      // console.log(budgetRef.current);
-      budgetRef.current.style.cursor = "grab";
-      // document.body.style.cursor = "default";
-    }
-  };
   return (
     <motion.div
       drag
       dragElastic={1}
       dragConstraints={budgetsDragConstraintsRef}
       whileDrag={{ scale: 1.1 }}
-      onDragStart={handleDragStart}
-      onDragEnd={handleDragEnd}
       dragMomentum={false}
       dragTransition={{ bounceStiffness: 200, bounceDamping: 10 }}
       ref={budgetRef}

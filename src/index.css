@@ -503,10 +503,14 @@ select {
   gap: var(--space-sm);
   text-decoration: none;
   color: hsl(var(--backdrop));
+  &:active{
+    cursor: grabbing;
+  }
 }
 .card{
   border: none;box-shadow: none;
   padding: 0;
+
 }
 
 .budget > .flex-sm {
