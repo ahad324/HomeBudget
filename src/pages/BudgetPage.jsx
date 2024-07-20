@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useLoaderData } from "react-router-dom";
 // Helper imports
 import { createExpense, deleteItem, getAllMatchingItems } from "../helpers";
@@ -6,6 +6,7 @@ import { createExpense, deleteItem, getAllMatchingItems } from "../helpers";
 import BudgetItem from "../components/BudgetItem";
 import AddExpenseForm from "../components/AddExpenseForm";
 import Table from "../components/Table";
+import BlurFade from "../components/magicui/BlurFade";
 
 // Library Imports
 import { toast } from "react-toastify";
@@ -58,19 +59,28 @@ export async function budgetAction({ request }) {
 }
 const BudgetPage = () => {
   const { budget, expenses } = useLoaderData();
+  const budgetsDragConstraintsRef = useRef();
+  const budgetRef = useRef();
   return (
     <div className="grid-lg" style={{ "--accent": budget.color }}>
-      <h1 className="h2">
+      <BlurFade className="h2">
         <span className="accent">{budget.name} </span>Overview
-      </h1>
+      </BlurFade>
       <div className="flex-lg">
-        <BudgetItem budget={budget} showDelete={true} />
+        <div ref={budgetsDragConstraintsRef} className="card">
+          <BudgetItem
+            budget={budget}
+            showDelete={true}
+            budgetsDragConstraintsRef={budgetsDragConstraintsRef}
+            budgetRef={budgetRef}
+          />
+        </div>
         <AddExpenseForm budgets={[budget]} />
         {expenses && expenses.length > 0 && (
           <div className="grid-md">
-            <h2>
+            <BlurFade className="h2" delay={0.6}>
               <span className="accent">{budget.name}</span> Expenses
-            </h2>
+            </BlurFade>
             <Table expenses={expenses} showBudget={false} />
           </div>
         )}

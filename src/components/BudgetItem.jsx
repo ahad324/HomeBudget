@@ -9,56 +9,93 @@ import {
 // Library imports
 import { HiOutlineBanknotes } from "react-icons/hi2";
 import { IoTrash } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 // MagicUI Components Imports
 import BlurFade from "../components/magicui/BlurFade";
 
-const BudgetItem = ({ budget, showDelete = false }) => {
+const BudgetItem = ({
+  budget,
+  showDelete = false,
+  budgetsDragConstraintsRef,
+  budgetRef,
+}) => {
   const { id, name, amount, color } = budget;
   const spent = calculateSpentByBudget(id);
+
+  const handleDragStart = () => {
+    if (budgetRef.current) {
+      // console.log("Start");
+      // console.log(budgetRef.current);
+      budgetRef.current.style.cursor = "grabbing";
+      // document.body.style.cursor = "grabbing";
+    }
+  };
+
+  const handleDragEnd = () => {
+    if (budgetRef) {
+      // console.log("End");
+      // console.log(budgetRef.current);
+      budgetRef.current.style.cursor = "grab";
+      // document.body.style.cursor = "default";
+    }
+  };
   return (
-    <BlurFade className="budget" Color={color} inview delay={0.2}>
-      <div className="progress-text">
-        <h3>{name}</h3>
-        <p>{formatCurrency(amount)} Budgeted</p>
-      </div>
-      <progress max={amount} value={spent}>
-        {formatPercentage(spent / amount)}
-      </progress>
-      <div className="progress-text">
-        <small>{formatCurrency(spent)} spent</small>
-        <small>{formatCurrency(amount - spent)} remaining </small>
-      </div>
-      {showDelete ? (
-        <div className="flex-sm">
-          <Form
-            method="post"
-            action="delete"
-            onSubmit={(event) => {
-              if (
-                !confirm(
-                  "Are you sure you want to permanently delete this budget?"
-                )
-              ) {
-                event.preventDefault();
-              }
-            }}
-          >
-            <button className="btn">
-              <span>Delete Budget</span>
-              <IoTrash width={20} />
-            </button>
-          </Form>
+    <motion.div
+      drag
+      dragElastic={1}
+      dragConstraints={budgetsDragConstraintsRef}
+      whileDrag={{ scale: 1.1 }}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+      dragMomentum={false}
+      dragTransition={{ bounceStiffness: 200, bounceDamping: 10 }}
+      ref={budgetRef}
+      className="card"
+    >
+      <BlurFade className="budget" Color={color} inview delay={0.2}>
+        <div className="progress-text">
+          <h3>{name}</h3>
+          <p>{formatCurrency(amount)} Budgeted</p>
         </div>
-      ) : (
-        <div className="flex-sm">
-          <Link to={`/budget/${id}`} className="btn">
-            <span>View Details</span>
-            <HiOutlineBanknotes width={20} />
-          </Link>
+        <progress max={amount} value={spent}>
+          {formatPercentage(spent / amount)}
+        </progress>
+        <div className="progress-text">
+          <small>{formatCurrency(spent)} spent</small>
+          <small>{formatCurrency(amount - spent)} remaining </small>
         </div>
-      )}
-    </BlurFade>
+        {showDelete ? (
+          <div className="flex-sm">
+            <Form
+              method="post"
+              action="delete"
+              onSubmit={(event) => {
+                if (
+                  !confirm(
+                    "Are you sure you want to permanently delete this budget?"
+                  )
+                ) {
+                  event.preventDefault();
+                }
+              }}
+            >
+              <button className="btn">
+                <span>Delete Budget</span>
+                <IoTrash width={20} />
+              </button>
+            </Form>
+          </div>
+        ) : (
+          <div className="flex-sm">
+            <Link to={`/budget/${id}`} className="btn">
+              <span>View Details</span>
+              <HiOutlineBanknotes width={20} />
+            </Link>
+          </div>
+        )}
+      </BlurFade>
+    </motion.div>
   );
 };
 

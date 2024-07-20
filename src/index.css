@@ -1,5 +1,5 @@
 /* ⚠️ CSS optimized for the tutorial, not for expanding to a larger site. ⚠️ */
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *,
 *::before,
 *::after {
@@ -74,8 +74,7 @@ body.dark {
   /* Add other dark theme variables */
 }
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: "Poppins", sans-serif;
   font-size: var(--fs-400);
   line-height: var(--lh-1-4);
   font-weight: 400;
@@ -108,6 +107,7 @@ h1,
 h2,
 .h2 {
   font-size: var(--fs-500);
+  font-weight: 700;
 }
 
 h3,
@@ -485,7 +485,8 @@ select {
   gap: var(--space-md);
 }
 
-.budget {
+.budget ,.card{
+  cursor: grab;
   --backdrop: var(--accent);
   display: -ms-grid;
   display: grid;
@@ -502,6 +503,10 @@ select {
   gap: var(--space-sm);
   text-decoration: none;
   color: hsl(var(--backdrop));
+}
+.card{
+  border: none;box-shadow: none;
+  padding: 0;
 }
 
 .budget > .flex-sm {

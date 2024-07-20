@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 // Helper Funtions
 import { createBudget, createExpense, deleteItem, fetchData } from "../helpers";
 import { Link, useLoaderData } from "react-router-dom";
@@ -13,6 +13,7 @@ import Table from "../components/Table";
 // Library import
 import { toast } from "react-toastify";
 import BlurFade from "../components/magicui/BlurFade";
+import { motion } from "framer-motion";
 
 // Loader
 export function dashboardLoader() {
@@ -69,6 +70,9 @@ export async function dashboardAciton({ request }) {
 }
 const Dashboard = () => {
   const { userName, budgets, expenses } = useLoaderData();
+  const budgetsDragConstraintsRef = useRef();
+  const budgetRef = useRef();
+
   return (
     <>
       {userName ? (
@@ -86,9 +90,14 @@ const Dashboard = () => {
                   <AddExpenseForm budgets={budgets} />
                 </div>
                 <h2>Existing Budgets</h2>
-                <div className="budgets">
+                <div className="budgets" ref={budgetsDragConstraintsRef}>
                   {budgets.map((budget) => (
-                    <BudgetItem key={budget.id} budget={budget} />
+                    <BudgetItem
+                      key={budget.id}
+                      budget={budget}
+                      budgetsDragConstraintsRef={budgetsDragConstraintsRef}
+                      budgetRef={budgetRef}
+                    />
                   ))}
                 </div>
                 {expenses && expenses.length > 0 && (
