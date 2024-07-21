@@ -5,7 +5,7 @@ Welcome to **HomeBudget**, the ultimate web app designed to help you take contro
 <p align="center">
   <img src="https://homebudget-react.netlify.app/logo.svg" alt="HomeBudget Logo" width="200"/>
   <br/>
-  <strong>HomeBudget</strong>
+  <h1>HomeBudget</h1>
 </p>
 
 ## 🚀 Features
@@ -72,4 +72,4 @@ Experience smooth and engaging animations throughout the app. Our interactive de
 
 ## 💬 Feedback and Contributions
 
-We’d love to hear from you! If you have any feedback or suggestions, please open an issue or submit a pull request. Your contributions and stars ⭐ keep us motivated!
+I’d love to hear from you! If you have any feedback or suggestions, please open an issue or submit a pull request. Your contributions and stars ⭐ keep me motivated!
