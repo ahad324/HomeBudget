@@ -13,7 +13,6 @@ import Table from "../components/Table";
 // Library import
 import { toast } from "react-toastify";
 import BlurFade from "../components/magicui/BlurFade";
-import { motion } from "framer-motion";
 
 // Loader
 export function dashboardLoader() {

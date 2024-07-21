@@ -12,7 +12,7 @@ const nav = ({ userName }) => {
   return (
     <nav>
       <NavLink to={"/"} aria-label="Go to home">
-        <img src={logomark} alt="" />
+        <img src={logomark} alt="Logo" title="HomeBudget" loading="eager" />
         <span>HomeBudget</span>
       </NavLink>
       <div className="flex flex-sm" style={{ alignItems: "center" }}>

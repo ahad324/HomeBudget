@@ -3,7 +3,7 @@ import { Form, useFetcher } from "react-router-dom";
 // library imports
 import { FaUserPlus } from "react-icons/fa";
 // Assets imports
-import illustration from "../assets/illustration.jpg";
+import illustration from "../assets/illustration.webp";
 // MagicUI Import
 import BlurFade from "./magicui/BlurFade";
 
@@ -52,7 +52,13 @@ const Intro = () => {
         </BlurFade>
       </div>
       <BlurFade inview delay={0.7}>
-        <img src={illustration} alt="Person with money" width={600} />
+        <img
+          src={illustration}
+          alt="An illustration of a person holding Money."
+          width={600}
+          title="Person with money."
+          loading="eager"
+        />
       </BlurFade>
     </div>
   );

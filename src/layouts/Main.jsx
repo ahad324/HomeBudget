@@ -21,7 +21,12 @@ const Main = () => {
       <main>
         <Outlet />
       </main>
-      <img src={wave} alt="" />
+      <img
+        src={wave}
+        alt="Wave Image for Footer"
+        title="Wave Image"
+        loading="eager"
+      />
     </div>
   );
 };
