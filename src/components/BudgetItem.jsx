@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 
 // MagicUI Components Imports
 import BlurFade from "../components/magicui/BlurFade";
+import AnimatedCircularProgressBar from "./magicui/Animated-Circular-Progress-Bar";
 
 const BudgetItem = ({
   budget,
@@ -39,9 +40,19 @@ const BudgetItem = ({
           <h3>{name}</h3>
           <p>{formatCurrency(amount)} Budgeted</p>
         </div>
-        <progress max={amount} value={spent}>
+        {/* <progress max={amount} value={spent}>
           {formatPercentage(spent / amount)}
-        </progress>
+        </progress> */}
+        <div className="Progress-Container">
+          <AnimatedCircularProgressBar
+            max={amount}
+            value={spent}
+            gaugePrimaryColor={`hsl(${color})`}
+            gaugeSecondaryColor="hsl(var(--bkg))"
+            className="Progress-Container-inner"
+            currentpercentage={formatPercentage(spent / amount)}
+          />
+        </div>
         <div className="progress-text">
           <small>{formatCurrency(spent)} spent</small>
           <small>{formatCurrency(amount - spent)} remaining </small>

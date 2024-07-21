@@ -21,6 +21,31 @@ img {
 svg {
   pointer-events: none;
 }
+.Progress-Container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.Progress-Container-inner {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 140px;
+  min-width: 140px;
+}
+.progress-circle {
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+.progress-circle > :nth-child(1) {
+  filter: contrast(0.2) brightness(1.5);
+}
+.percentage-value-in-progress-circle {
+  position: absolute;
+  right: 25%;
+}
 
 :root {
   /* fonts */
@@ -506,15 +531,15 @@ select {
   color: hsl(var(--backdrop));
   &:active {
     cursor: grabbing;
-    z-index:1;
+    z-index: 1;
   }
 }
 .card {
   border: none;
   box-shadow: none;
   padding: 0;
-  background: rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(10px);
+  background: var(--bkg);
+  backdrop-filter: blur(10px) contrast(1);
 }
 
 .budget > .flex-sm {
