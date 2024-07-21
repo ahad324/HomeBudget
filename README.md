@@ -1,10 +1,6 @@
-<div style="display: flex; align-items: center;">
-  <img src="https://homebudget-react.netlify.app/logo.svg" alt="HomeBudget Logo" width="20" style="margin-right: 10px;"/>
-  <h2 style="margin: 0;">HomeBudget</h2>
-</div>
+<h2 style="margin: 0;"><img src="https://homebudget-react.netlify.app/logo.svg" alt="HomeBudget Logo" width="20" style="margin-right: 10px;"/>HomeBudget</h2>
 
 Welcome to **HomeBudget**, the ultimate web app designed to help you take control of your personal finances with ease! Whether you're looking to track expenses, plan budgets, or analyze financial trends, HomeBudget has got you covered.
-
 
 ## 🚀 Features
 
